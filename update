@@ -6,8 +6,6 @@ BOLD=$(tput bold)
 NORM=$(tput sgr0)
 Date=$(date +%d-%m-%Y)
 Time=$(date +%T)
-sudo rm -rf /var/lib/dpkg/lock-frontend
-sudo rm -rf /var/liv/dpkg/lock
 echo ""
 echo ""
 echo -e "${YELLOW}***************${NC}"
