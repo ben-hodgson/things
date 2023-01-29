@@ -4,10 +4,8 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 BOLD=$(tput bold)
 NORM=$(tput sgr0)
-Date=$(date +%d-%m-%Y)
-Time=$(date +%T)
-echo ""
-echo ""
+sudo rm -rf /var/lib/dpkg/lock-frontend
+sudo rm -rf /var/liv/dpkg/lock
 echo -e "${YELLOW}***************${NC}"
 echo -e "${RED}${BOLD}Update Packages${NC}${NORM}"
 echo -e "${YELLOW}***************${NC}"
@@ -20,17 +18,23 @@ echo -e "${YELLOW}****************${NC}"
 echo ""
 sudo apt upgrade -y
 echo ""
-echo -e "${YELLOW}**************${NC}"
-echo -e "${RED}${BOLD}Upgrade Distro${NC}${NORM}"
-echo -e "${YELLOW}**************${NC}"
-echo ""
-sudo apt-get dist-upgrade -y
-echo ""
 echo -e "${YELLOW}*********************${NC}"
 echo -e "${RED}${BOLD}Refresh Snap Packages${NC}${NORM}"
 echo -e "${YELLOW}*********************${NC}"
 echo ""
 sudo snap refresh
+echo ""
+echo -e "${YELLOW}************************${NC}"
+echo -e "${RED}${BOLD}Update Flatpack Packages${NC}${NORM}"
+echo -e "${YELLOW}************************${NC}"
+echo ""
+sudo flatpak update -y
+echo ""
+echo -e "${YELLOW}***************${NC}"
+echo -e "${RED}${BOLD}Upgrade Distro${NC}${NORM}"
+echo -e "${YELLOW}***************${NC}"
+echo ""
+sudo apt-get dist-upgrade -y
 echo ""
 echo -e "${YELLOW}*******************${NC}"
 echo -e "${RED}${BOLD}Autoremove Packages${NC}${NORM}"
@@ -43,5 +47,3 @@ echo -e "${RED}${BOLD}Autoclean Packages${NC}${NORM}"
 echo -e "${YELLOW}******************${NC}"
 echo ""
 sudo apt autoclean -y
-echo ""
-echo -e "${RED}${BOLD}Updates completed on $Date at $Time ${NC}${NORM}"
